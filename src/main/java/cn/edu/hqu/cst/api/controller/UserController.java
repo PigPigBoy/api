@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
@@ -16,14 +17,14 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/api/list")
-    public List<User> getAllUsers() {
-        System.out.println("1");
+    public List<User> getAllUsers(HttpServletResponse response) {
+        response.setHeader("Access-Control-Allow-Origin","*");
         return userService.getAllUsers();
     }
 
     @GetMapping("/api/user/{id}")
-    public User getOneUser(@PathVariable("id") int id){
-        System.out.println("2");
+    public User getOneUser(@PathVariable("id") int id,HttpServletResponse response){
+        response.setHeader("Access-Control-Allow-Origin","*");
         return userService.getOneUser(id);
     }
 }
