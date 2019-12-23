@@ -4,8 +4,6 @@ server:
 mybatis:
   type-aliases-package: cn.edu.hqu.cst.api.entity
   mapper-locations: classpath:mybatis/mapper/*.xml
-#  configuration:
-#    map-underscore-to-camel-case: true
 
 spring:
   datasource:

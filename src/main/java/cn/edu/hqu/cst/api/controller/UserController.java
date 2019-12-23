@@ -27,4 +27,9 @@ public class UserController {
         response.setHeader("Access-Control-Allow-Origin","*");
         return userService.getOneUser(id);
     }
+
+    @GetMapping("/")
+    public String sayHello(){
+        return "Hello!";
+    }
 }
